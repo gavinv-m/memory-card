@@ -1,10 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import getTitles from './titles';
+import Header from './Header';
 
 // Exports to main.jsx
 export default function App() {
   const [films, setFilms] = useState([]);
   const fetched = useRef(false);
+
+  const [score, setScore] = useState(0);
+  const bestScore = useRef(0);
 
   useEffect(() => {
     // Loading twice in development
@@ -37,4 +41,10 @@ export default function App() {
 
     fetchPosters();
   }, []);
+
+  return (
+    <>
+      <Header score={score} bestScore={bestScore.current}></Header>
+    </>
+  );
 }
