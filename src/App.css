@@ -1,0 +1,36 @@
+header {
+  /* Descendants: */
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title {
+  font-family: var(--font-harry-potter);
+  font-size: 3.5rem;
+  letter-spacing: 0.3rem;
+}
+
+.title-and-scores {
+  /* Descendants: */
+  display: flex;
+  justify-content: space-between;
+}
+
+.scores {
+  font-family: var(--font-godfather);
+  letter-spacing: 0.3rem;
+  font-size: 2rem;
+
+  /* Descendants: */
+  display: flex;
+  flex-direction: column;
+}
+
+.colon {
+  display: inline-block;
+  transform: translate(3px, 5px);
+}
+
+.game-rules {
+  font-size: 1.1rem;
+}

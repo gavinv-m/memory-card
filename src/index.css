@@ -1,4 +1,7 @@
-html {
+:root {
+  --font-godfather: 'The Godfather', sans-serif, system-ui;
+  --font-harry-potter: 'Harry Potter', sans-serif, system-ui;
+  --font-jurassic-park: 'Jurassic Park', sans-serif, system-ui;
   font-size: 16px;
 }
 
@@ -14,4 +17,31 @@ body {
   margin: 0 auto;
   max-width: 1500px;
   width: 100%;
+}
+
+#root {
+  padding: 2rem;
+
+  /* Descendants: */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@font-face {
+  font-family: 'The Godfather';
+  src: url(../fonts/godfather/thegodfather-rgrk-webfont.woff2),
+    url(../fonts/godfather/thegodfather-rgrk-webfont.woff);
+}
+
+@font-face {
+  font-family: 'Harry Potter';
+  src: url(../fonts/potter/harrypotter-ov4z-webfont.woff2),
+    url(../fonts/potter/harrypotter-ov4z-webfont.woff);
+}
+
+@font-face {
+  font-family: 'Jurassic Park';
+  src: url(../fonts/jurassic/jurassicpark-bl48-webfont.woff2),
+    url(../fonts/jurassic/jurassicpark-bl48-webfont.woff);
 }

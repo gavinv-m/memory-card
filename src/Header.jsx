@@ -5,8 +5,12 @@ export default function Header({ score, bestScore }) {
       <div className="title-and-scores">
         <h1 className="header-title">Memory Reel</h1>
         <div className="scores">
-          <span className="current-score">Score: {score}</span>
-          <span className="best-score">Best Score: {bestScore}</span>
+          <span className="current-score">
+            Score<span class="colon">:</span> {score}
+          </span>
+          <span className="best-score">
+            Best Score<span class="colon">:</span> {bestScore}
+          </span>
         </div>
       </div>
       <span className="game-rules">

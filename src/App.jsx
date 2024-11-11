@@ -1,3 +1,4 @@
+import './App.css';
 import { useEffect, useRef, useState } from 'react';
 import getTitles from './titles';
 import Header from './Header';
