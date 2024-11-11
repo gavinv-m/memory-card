@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import getTitles from './titles';
 import Header from './Header';
+import Grid from './Grid';
 
 // Exports to main.jsx
 export default function App() {
@@ -45,6 +46,7 @@ export default function App() {
   return (
     <>
       <Header score={score} bestScore={bestScore.current}></Header>
+      <Grid films={films}></Grid>
     </>
   );
 }
