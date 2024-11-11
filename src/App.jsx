@@ -29,10 +29,10 @@ export default function App() {
             console.log(data);
           }
           const posterPath = `https://image.tmdb.org/t/p/w500/${data.poster_path}`;
-          return { ...film, src: posterPath };
+          return { ...film, src: posterPath, clicked: false };
         } catch (error) {
           console.error(`Error fetching poster for ${film.id}:`, error);
-          return { ...film, src: null };
+          return { ...film, src: null, clicked: false };
         }
       });
 
@@ -43,10 +43,31 @@ export default function App() {
     fetchPosters();
   }, []);
 
+  const updateScore = (e) => {
+    const filmId = Number(e.target.getAttribute('data-id'));
+    const clicked = films.find((film) => film.id === filmId).clicked;
+
+    if (clicked === false) {
+      setFilms((prevState) => {
+        return prevState.map((film) => {
+          return film.id === filmId ? { ...film, clicked: true } : film;
+        });
+      });
+      setScore(score + 1);
+    } else {
+      setScore(0);
+      setFilms((prevState) => {
+        return prevState.map((film) => {
+          return film.clicked === true ? { ...film, clicked: false } : film;
+        });
+      });
+    }
+  };
+
   return (
     <>
       <Header score={score} bestScore={bestScore.current}></Header>
-      <Grid films={films}></Grid>
+      <Grid films={films} updateScore={updateScore}></Grid>
     </>
   );
 }

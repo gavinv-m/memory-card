@@ -7,14 +7,19 @@ const shuffle = function shuffleArray(array) {
 };
 
 // Exports to App.js
-export default function Grid({ films }) {
+export default function Grid({ films, updateScore }) {
   const shuffledFilms = shuffle(films);
   return (
     <main>
       {shuffledFilms.map((film) => {
         return (
           <div className="card" key={film.id}>
-            <img src={film.src} alt={`Poster of the movie ${film.title}`} />
+            <img
+              src={film.src}
+              alt={`Poster of the movie ${film.title}`}
+              data-id={film.id}
+              onClick={updateScore}
+            />
           </div>
         );
       })}
