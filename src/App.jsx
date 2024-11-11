@@ -9,7 +9,7 @@ export default function App() {
   const fetched = useRef(false);
 
   const [score, setScore] = useState(0);
-  const bestScore = useRef(0);
+  const [bestScore, setBestScore] = useState(0);
 
   useEffect(() => {
     // Loading twice in development
@@ -53,7 +53,11 @@ export default function App() {
           return film.id === filmId ? { ...film, clicked: true } : film;
         });
       });
-      setScore(score + 1);
+      setScore((prevScore) => {
+        const newScore = prevScore + 1;
+        setBestScore((prevBestScore) => Math.max(newScore, prevBestScore));
+        return newScore;
+      });
     } else {
       setScore(0);
       setFilms((prevState) => {
@@ -66,7 +70,7 @@ export default function App() {
 
   return (
     <>
-      <Header score={score} bestScore={bestScore.current}></Header>
+      <Header score={score} bestScore={bestScore}></Header>
       <Grid films={films} updateScore={updateScore}></Grid>
     </>
   );
