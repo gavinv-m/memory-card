@@ -6,10 +6,10 @@ export default function Header({ score, bestScore }) {
         <h1 className="header-title">Memory Reel</h1>
         <div className="scores">
           <span className="current-score">
-            Score<span class="colon">:</span> {score}
+            Score<span className="colon">:</span> {score}
           </span>
           <span className="best-score">
-            Best Score<span class="colon">:</span> {bestScore}
+            Best Score<span className="colon">:</span> {bestScore}
           </span>
         </div>
       </div>

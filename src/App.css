@@ -34,3 +34,19 @@ header {
 .game-rules {
   font-size: 1.1rem;
 }
+
+main {
+  /* Descendants: */
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.card {
+  height: 265px;
+}
+
+.card img {
+  height: 100%;
+  width: 100%;
+}
