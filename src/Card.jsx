@@ -18,6 +18,7 @@ export default function Card({ imageSrc, videoSrc, updateScore, filmId }) {
       className="card"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      data-name={filmId === 426 ? 'Vertigo' : undefined}
     >
       {hovering === true ? (
         <iframe
@@ -25,6 +26,7 @@ export default function Card({ imageSrc, videoSrc, updateScore, filmId }) {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           className="card-video"
+          frameBorder="0"
         ></iframe>
       ) : (
         <img src={imageSrc} className="card-image" alt="Movie poster" />

@@ -5,6 +5,7 @@ header {
 }
 
 .header-title {
+  color: #e50914;
   font-family: var(--font-harry-potter);
   font-size: 3.5rem;
   letter-spacing: 0.3rem;
@@ -17,6 +18,7 @@ header {
 }
 
 .scores {
+  color: #e5e5e5;
   font-family: var(--font-godfather);
   letter-spacing: 0.3rem;
   font-size: 2rem;
@@ -32,6 +34,7 @@ header {
 }
 
 .game-rules {
+  color: #e5e5e5;
   font-size: 1.1rem;
 }
 
@@ -48,10 +51,16 @@ main {
   transition: transform 0.3s ease-in-out;
   will-change: transform;
   z-index: 1;
+
+  /* Descendants: */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .card img,
 .card iframe {
+  border-radius: 20px;
   height: 80%;
   width: 100%;
 }
@@ -59,4 +68,27 @@ main {
 .card:hover {
   transform: scale(1.35);
   z-index: 10;
+}
+
+.next-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.next-button-container svg {
+  cursor: pointer;
+}
+
+div[data-name='Vertigo'] {
+  transform-origin: center center;
+  animation: rotate 2s ease-out 1;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

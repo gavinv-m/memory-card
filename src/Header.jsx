@@ -14,8 +14,8 @@ export default function Header({ score, bestScore }) {
         </div>
       </div>
       <span className="game-rules">
-        Earn points by clicking on an image, but be careful not to click the
-        same one more than once!
+        Earn points by clicking the button on each movie poster, but don’t click
+        the same one twice!
       </span>
     </header>
   );
