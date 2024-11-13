@@ -26,10 +26,6 @@ export default function App() {
             { mode: 'cors' },
           );
           const data = await response.json();
-          // TODO: Remove
-          if (index === 0) {
-            console.log(data);
-          }
           const posterPath = `https://image.tmdb.org/t/p/w500/${data.poster_path}`;
           const videoSrc = getTrailerSrc(data);
 
