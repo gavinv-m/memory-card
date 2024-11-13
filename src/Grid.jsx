@@ -1,3 +1,5 @@
+import Card from './Card';
+
 const shuffle = function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -13,14 +15,11 @@ export default function Grid({ films, updateScore }) {
     <main>
       {shuffledFilms.map((film) => {
         return (
-          <div className="card" key={film.id}>
-            <img
-              src={film.src}
-              alt={`Poster of the movie ${film.title}`}
-              data-id={film.id}
-              onClick={updateScore}
-            />
-          </div>
+          <Card
+            imageSrc={film.imgSrc}
+            videoSrc={film.vidSrc}
+            key={film.id}
+          ></Card>
         );
       })}
     </main>

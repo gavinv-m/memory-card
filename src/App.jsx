@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import getTitles from './titles';
 import Header from './Header';
 import Grid from './Grid';
+import getTrailerSrc from './trailer';
 
 // Exports to main.jsx
 export default function App() {
@@ -11,6 +12,8 @@ export default function App() {
 
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+
+  console.log(films);
 
   useEffect(() => {
     // Loading twice in development
@@ -21,7 +24,7 @@ export default function App() {
       const promises = getTitles().map(async (film, index) => {
         try {
           const response = await fetch(
-            `https://api.themoviedb.org/3/movie/${film.id}?api_key=b2e8b9fd7484d2460a372d9ccfcb104c`,
+            `https://api.themoviedb.org/3/movie/${film.id}?api_key=b2e8b9fd7484d2460a372d9ccfcb104c&append_to_response=videos`,
             { mode: 'cors' },
           );
           const data = await response.json();
@@ -30,10 +33,17 @@ export default function App() {
             console.log(data);
           }
           const posterPath = `https://image.tmdb.org/t/p/w500/${data.poster_path}`;
-          return { ...film, src: posterPath, clicked: false };
+          const videoSrc = getTrailerSrc(data);
+
+          return {
+            ...film,
+            imgSrc: posterPath,
+            vidSrc: videoSrc,
+            clicked: false,
+          };
         } catch (error) {
           console.error(`Error fetching poster for ${film.id}:`, error);
-          return { ...film, src: null, clicked: false };
+          return { ...film, imgSrc: null, vidSrc: null, clicked: false };
         }
       });
 

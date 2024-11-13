@@ -44,9 +44,19 @@ main {
 
 .card {
   height: 265px;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+  z-index: 1;
 }
 
-.card img {
+.card img,
+.card iframe {
   height: 100%;
   width: 100%;
+}
+
+.card:hover {
+  transform: scale(1.35);
+  z-index: 10;
 }
