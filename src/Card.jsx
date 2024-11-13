@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import NextIcon from './icons/NextIcon';
 
 // Exports to Grid
-export default function Card({ imageSrc, videoSrc }) {
+export default function Card({ imageSrc, videoSrc, updateScore, filmId }) {
   const [hovering, setHovering] = useState(false);
 
   const handleMouseEnter = () => {
@@ -28,6 +29,7 @@ export default function Card({ imageSrc, videoSrc }) {
       ) : (
         <img src={imageSrc} className="card-image" alt="Movie poster" />
       )}
+      <NextIcon updateScore={updateScore} filmId={filmId}></NextIcon>
     </div>
   );
 }

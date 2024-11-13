@@ -18,6 +18,8 @@ export default function Grid({ films, updateScore }) {
           <Card
             imageSrc={film.imgSrc}
             videoSrc={film.vidSrc}
+            updateScore={updateScore}
+            filmId={film.id}
             key={film.id}
           ></Card>
         );

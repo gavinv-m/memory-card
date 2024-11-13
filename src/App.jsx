@@ -13,8 +13,6 @@ export default function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
-  console.log(films);
-
   useEffect(() => {
     // Loading twice in development
     if (fetched.current === true) return;
